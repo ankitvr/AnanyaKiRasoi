@@ -34,6 +34,7 @@
     "languages": [
       "en",
       "hi"
-    ]
+    ],
+    "herokuAppName": "ananya-ki-rasoi"
   }
 }
