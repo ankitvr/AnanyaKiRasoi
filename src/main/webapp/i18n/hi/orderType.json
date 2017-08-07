@@ -1,0 +1,9 @@
+{
+    "ananyaKiRasoiApp": {
+        "OrderType" : {
+            "null": "",
+            "ONLINE": "ONLINE",
+            "TELEPHONIC": "TELEPHONIC"
+        }
+    }
+}

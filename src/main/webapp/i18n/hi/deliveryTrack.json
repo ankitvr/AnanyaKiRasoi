@@ -1,0 +1,24 @@
+{
+    "ananyaKiRasoiApp": {
+        "deliveryTrack" : {
+            "home": {
+                "title": "DeliveryTracks",
+                "createLabel": "नया Delivery Track बनाएँ",
+                "createOrEditLabel": "Delivery Track बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Delivery Track [identifier: {{ param }}] तैयार है",
+            "updated": "एक Delivery Track [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Delivery Track [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Delivery Track [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Delivery Track"
+            },
+            "estimatedTime": "Estimated Time",
+            "status": "Status",
+            "bill": "Bill",
+            "userExtras": "User Extras"
+        }
+    }
+}

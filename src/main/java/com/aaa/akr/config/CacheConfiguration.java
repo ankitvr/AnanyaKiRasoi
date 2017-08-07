@@ -44,6 +44,17 @@ public class CacheConfiguration {
             cm.createCache(com.aaa.akr.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.aaa.akr.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(com.aaa.akr.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(com.aaa.akr.domain.UserExtras.class.getName(), jcacheConfiguration);
+            cm.createCache(com.aaa.akr.domain.UserExtras.class.getName() + ".addresses", jcacheConfiguration);
+            cm.createCache(com.aaa.akr.domain.Address.class.getName(), jcacheConfiguration);
+            cm.createCache(com.aaa.akr.domain.Bill.class.getName(), jcacheConfiguration);
+            cm.createCache(com.aaa.akr.domain.DeliveryTrack.class.getName(), jcacheConfiguration);
+            cm.createCache(com.aaa.akr.domain.Order.class.getName(), jcacheConfiguration);
+            cm.createCache(com.aaa.akr.domain.Order.class.getName() + ".products", jcacheConfiguration);
+            cm.createCache(com.aaa.akr.domain.Product.class.getName(), jcacheConfiguration);
+            cm.createCache(com.aaa.akr.domain.Product.class.getName() + ".categories", jcacheConfiguration);
+            cm.createCache(com.aaa.akr.domain.Category.class.getName(), jcacheConfiguration);
+            cm.createCache(com.aaa.akr.domain.Category.class.getName() + ".products", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

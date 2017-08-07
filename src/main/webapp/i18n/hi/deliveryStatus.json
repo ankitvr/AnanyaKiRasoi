@@ -1,0 +1,10 @@
+{
+    "ananyaKiRasoiApp": {
+        "DeliveryStatus" : {
+            "null": "",
+            "IN_MAKING": "IN_MAKING",
+            "ON_WAY": "ON_WAY",
+            "DELIVERED": "DELIVERED"
+        }
+    }
+}

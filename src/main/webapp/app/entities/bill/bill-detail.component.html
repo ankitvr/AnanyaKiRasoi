@@ -1,0 +1,39 @@
+
+<div *ngIf="bill">
+    <h2><span jhiTranslate="ananyaKiRasoiApp.bill.detail.title">Bill</span> {{bill.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="ananyaKiRasoiApp.bill.billTime">Bill Time</span></dt>
+        <dd>
+            <span>{{bill.billTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="ananyaKiRasoiApp.bill.amount">Amount</span></dt>
+        <dd>
+            <span>{{bill.amount}}</span>
+        </dd>
+        <dt><span jhiTranslate="ananyaKiRasoiApp.bill.discount">Discount</span></dt>
+        <dd>
+            <span>{{bill.discount}}</span>
+        </dd>
+        <dt><span jhiTranslate="ananyaKiRasoiApp.bill.order">Order</span></dt>
+        <dd>
+            <div *ngIf="bill.order">
+                <a [routerLink]="['/order', bill.order?.id]">{{bill.order?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'bill/'+ bill.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "bill",
+            "otherEntityName": "bill",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "deliveryTrack"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "userExtras",
+            "otherEntityName": "userExtras",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "deliveryTrack"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "estimatedTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "DeliveryStatus",
+            "fieldValues": "IN_MAKING,ON_WAY,DELIVERED"
+        }
+    ],
+    "changelogDate": "20170806204711",
+    "entityTableName": "delivery_track",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

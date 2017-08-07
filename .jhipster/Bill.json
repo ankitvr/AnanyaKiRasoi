@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "order",
+            "otherEntityName": "order",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "bill"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "deliveryTrack",
+            "otherEntityName": "deliveryTrack",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "bill"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "billTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "discount",
+            "fieldType": "Float"
+        }
+    ],
+    "changelogDate": "20170806204710",
+    "entityTableName": "bill",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "no"
+}

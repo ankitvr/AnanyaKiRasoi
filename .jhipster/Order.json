@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "product",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "order"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "bill",
+            "otherEntityName": "bill",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "order"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "orderType",
+            "fieldType": "OrderType",
+            "fieldValues": "ONLINE,TELEPHONIC"
+        }
+    ],
+    "changelogDate": "20170806204712",
+    "entityTableName": "order",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "no"
+}

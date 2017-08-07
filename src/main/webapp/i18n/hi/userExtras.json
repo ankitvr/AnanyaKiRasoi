@@ -1,0 +1,23 @@
+{
+    "ananyaKiRasoiApp": {
+        "userExtras" : {
+            "home": {
+                "title": "UserExtras",
+                "createLabel": "नया User Extras बनाएँ",
+                "createOrEditLabel": "User Extras बनाएँ या संपादित करें"
+            },
+            "created": "एक नया User Extras [identifier: {{ param }}] तैयार है",
+            "updated": "एक User Extras [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "User Extras [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "User Extras [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "User Extras"
+            },
+            "telephone": "Telephone",
+            "deliveryTrack": "Delivery Track",
+            "address": "Address"
+        }
+    }
+}

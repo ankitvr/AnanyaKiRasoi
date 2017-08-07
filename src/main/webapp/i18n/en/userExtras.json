@@ -1,0 +1,23 @@
+{
+    "ananyaKiRasoiApp": {
+        "userExtras" : {
+            "home": {
+                "title": "User Extras",
+                "createLabel": "Create a new User Extras",
+                "createOrEditLabel": "Create or edit a User Extras"
+            },
+            "created": "A new User Extras is created with identifier {{ param }}",
+            "updated": "A User Extras is updated with identifier {{ param }}",
+            "deleted": "A User Extras is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete User Extras {{ id }}?"
+            },
+            "detail": {
+                "title": "User Extras"
+            },
+            "telephone": "Telephone",
+            "deliveryTrack": "Delivery Track",
+            "address": "Address"
+        }
+    }
+}

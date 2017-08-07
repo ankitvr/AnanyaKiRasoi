@@ -1,0 +1,80 @@
+entity UserExtras {
+    telephone String required
+}
+
+entity Address {
+	address1 String,
+    address2 String,
+    city String,
+    postcode String,
+    country String
+}
+
+entity Bill{
+  billTime ZonedDateTime 
+  amount Float
+  discount Float
+}
+
+entity DeliveryTrack{
+  estimatedTime ZonedDateTime 
+  status DeliveryStatus
+}
+
+entity Order{
+  orderType OrderType
+}
+
+
+enum OrderType {
+	ONLINE,TELEPHONIC
+}
+ 
+enum DeliveryStatus{
+	IN_MAKING,ON_WAY,DELIVERED
+}
+
+entity Product {
+	name String,
+    description String,
+    image ImageBlob,
+    price BigDecimal,
+}
+
+entity Category {
+	name String,
+}
+
+
+relationship ManyToMany {
+	Product {category} to Category {product}
+}
+
+
+relationship OneToMany {
+	Order {product} to Product {order}
+}
+
+
+relationship OneToOne {
+	Bill {order} to Order {bill}
+}
+
+relationship OneToOne {
+	DeliveryTrack {bill} to Bill {deliveryTrack}
+}
+
+relationship OneToOne {
+	UserExtras {deliveryTrack} to DeliveryTrack {userExtras}
+}
+
+relationship OneToMany {
+	UserExtras{address} to Address{userExtras}
+}
+
+
+
+paginate UserExtras with pagination
+paginate Address with pager
+paginate Bill with pager
+paginate Order with pager
