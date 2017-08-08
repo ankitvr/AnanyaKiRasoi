@@ -1,3 +1,5 @@
+
+
 entity UserExtras {
     telephone String required
 }
@@ -11,13 +13,13 @@ entity Address {
 }
 
 entity Bill{
-  billTime ZonedDateTime 
+  billTime ZonedDateTime
   amount Float
   discount Float
 }
 
 entity DeliveryTrack{
-  estimatedTime ZonedDateTime 
+  estimatedTime ZonedDateTime
   status DeliveryStatus
 }
 
@@ -29,7 +31,7 @@ entity Order{
 enum OrderType {
 	ONLINE,TELEPHONIC
 }
- 
+
 enum DeliveryStatus{
 	IN_MAKING,ON_WAY,DELIVERED
 }
@@ -45,26 +47,14 @@ entity Category {
 	name String,
 }
 
-
 relationship ManyToMany {
-	Product {category} to Category {product}
-}
-
-
-relationship OneToMany {
+	Product {category} to Category {product},
 	Order {product} to Product {order}
 }
 
-
 relationship OneToOne {
-	Bill {order} to Order {bill}
-}
-
-relationship OneToOne {
-	DeliveryTrack {bill} to Bill {deliveryTrack}
-}
-
-relationship OneToOne {
+	DeliveryTrack {bill} to Bill {deliveryTrack},
+	Bill {order} to Order {bill},
 	UserExtras {deliveryTrack} to DeliveryTrack {userExtras}
 }
 
