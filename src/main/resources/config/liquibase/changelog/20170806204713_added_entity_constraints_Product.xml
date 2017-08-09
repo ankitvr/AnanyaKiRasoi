@@ -19,11 +19,5 @@
                                  referencedColumnNames="id"
                                  referencedTableName="category"/>
         
-        <addForeignKeyConstraint baseColumnNames="order_id"
-                                 baseTableName="product"
-                                 constraintName="fk_product_order_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="jhi_order"/>
-
     </changeSet>
 </databaseChangeLog>

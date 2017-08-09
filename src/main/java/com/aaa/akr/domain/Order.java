@@ -30,9 +30,11 @@ public class Order implements Serializable {
     @Column(name = "order_type")
     private OrderType orderType;
 
-    @OneToMany(mappedBy = "order")
-    @JsonIgnore
+    @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JoinTable(name = "order_product",
+               joinColumns = @JoinColumn(name="orders_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="products_id", referencedColumnName="id"))
     private Set<Product> products = new HashSet<>();
 
     @OneToOne(mappedBy = "order")
@@ -71,13 +73,13 @@ public class Order implements Serializable {
 
     public Order addProduct(Product product) {
         this.products.add(product);
-        product.setOrder(this);
+        product.getOrders().add(this);
         return this;
     }
 
     public Order removeProduct(Product product) {
         this.products.remove(product);
-        product.setOrder(null);
+        product.getOrders().remove(this);
         return this;
     }
 

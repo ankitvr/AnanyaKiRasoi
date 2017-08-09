@@ -117,7 +117,7 @@ public class OrderResource {
     @Timed
     public ResponseEntity<Order> getOrder(@PathVariable Long id) {
         log.debug("REST request to get Order : {}", id);
-        Order order = orderRepository.findOne(id);
+        Order order = orderRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(order));
     }
 

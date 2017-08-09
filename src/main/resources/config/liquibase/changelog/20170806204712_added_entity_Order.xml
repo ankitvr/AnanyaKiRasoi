@@ -29,5 +29,16 @@
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         
+        <createTable tableName="order_product">
+            <column name="products_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="orders_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="orders_id, products_id" tableName="order_product"/>
+        
     </changeSet>
 </databaseChangeLog>

@@ -9,6 +9,7 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Order } from './order.model';
 import { OrderPopupService } from './order-popup.service';
 import { OrderService } from './order.service';
+import { Product, ProductService } from '../product';
 import { Bill, BillService } from '../bill';
 import { ResponseWrapper } from '../../shared';
 
@@ -21,12 +22,15 @@ export class OrderDialogComponent implements OnInit {
     order: Order;
     isSaving: boolean;
 
+    products: Product[];
+
     bills: Bill[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private alertService: JhiAlertService,
         private orderService: OrderService,
+        private productService: ProductService,
         private billService: BillService,
         private eventManager: JhiEventManager
     ) {
@@ -34,6 +38,8 @@ export class OrderDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+        this.productService.query()
+            .subscribe((res: ResponseWrapper) => { this.products = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.billService.query()
             .subscribe((res: ResponseWrapper) => { this.bills = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
@@ -78,8 +84,23 @@ export class OrderDialogComponent implements OnInit {
         this.alertService.error(error.message, null, null);
     }
 
+    trackProductById(index: number, item: Product) {
+        return item.id;
+    }
+
     trackBillById(index: number, item: Bill) {
         return item.id;
+    }
+
+    getSelected(selectedVals: Array<any>, option: any) {
+        if (selectedVals) {
+            for (let i = 0; i < selectedVals.length; i++) {
+                if (option.id === selectedVals[i].id) {
+                    return selectedVals[i];
+                }
+            }
+        }
+        return option;
     }
 }
 

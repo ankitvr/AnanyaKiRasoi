@@ -9,7 +9,7 @@ export class Product implements BaseEntity {
         public image?: any,
         public price?: number,
         public categories?: BaseEntity[],
-        public order?: BaseEntity,
+        public orders?: BaseEntity[],
     ) {
     }
 }

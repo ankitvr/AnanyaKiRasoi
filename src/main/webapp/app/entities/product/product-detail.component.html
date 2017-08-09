@@ -31,12 +31,6 @@
                 <a [routerLink]="['/category', category?.id ]">{{category.id}}</a>{{last ? '' : ', '}}
             </span>
         </dd>
-        <dt><span jhiTranslate="ananyaKiRasoiApp.product.order">Order</span></dt>
-        <dd>
-            <div *ngIf="product.order">
-                <a [routerLink]="['/order', product.order?.id]">{{product.order?.id}}</a>
-            </div>
-        </dd>
     </dl>
 
     <button type="submit"

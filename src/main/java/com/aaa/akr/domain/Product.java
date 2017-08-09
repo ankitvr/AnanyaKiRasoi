@@ -1,5 +1,6 @@
 package com.aaa.akr.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -47,8 +48,10 @@ public class Product implements Serializable {
                inverseJoinColumns = @JoinColumn(name="categories_id", referencedColumnName="id"))
     private Set<Category> categories = new HashSet<>();
 
-    @ManyToOne
-    private Order order;
+    @ManyToMany(mappedBy = "products")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Order> orders = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -148,17 +151,29 @@ public class Product implements Serializable {
         this.categories = categories;
     }
 
-    public Order getOrder() {
-        return order;
+    public Set<Order> getOrders() {
+        return orders;
     }
 
-    public Product order(Order order) {
-        this.order = order;
+    public Product orders(Set<Order> orders) {
+        this.orders = orders;
         return this;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public Product addOrder(Order order) {
+        this.orders.add(order);
+        order.getProducts().add(this);
+        return this;
+    }
+
+    public Product removeOrder(Order order) {
+        this.orders.remove(order);
+        order.getProducts().remove(this);
+        return this;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 
     @Override

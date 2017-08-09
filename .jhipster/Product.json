@@ -10,10 +10,11 @@
             "ownerSide": true
         },
         {
-            "relationshipType": "many-to-one",
+            "relationshipType": "many-to-many",
             "relationshipName": "order",
             "otherEntityName": "order",
-            "otherEntityField": "id"
+            "ownerSide": false,
+            "otherEntityRelationshipName": "product"
         }
     ],
     "fields": [
